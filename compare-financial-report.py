@@ -13,6 +13,11 @@ from sentence_transformers import CrossEncoder
 from transformers import pipeline
 from langchain_core.prompts import PromptTemplate
 from langchain.chains import LLMChain
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from langchain.llms.huggingface_pipeline import HuggingFacePipeline
+
+# Load the model and tokenizer
+model_name = "meta-llama/Meta-Llama-3-1B"
 
 # Initialize classifier once for input guardrail
 classifier = pipeline("zero-shot-classification", 
@@ -73,7 +78,18 @@ if uploaded_files:
         cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
         # Financial Analysis LLM Configuration
-        llm = Ollama(model=model_choice)
+        # llm = Ollama(model=model_choice)
+      
+        ##
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        model = AutoModelForCausalLM.from_pretrained(model_name)
+        
+        # Create a local pipeline
+        pipeline_llm = pipeline("text-generation", model=model, tokenizer=tokenizer)
+        # Wrap the local pipeline with Langchain
+        llm = HuggingFacePipeline(pipeline=pipeline_llm)
+        ##
+      
         PROMPT_TEMPLATE = """
         As a senior financial analyst, analyze the following context from multiple financial reports:
         1. Compare key metrics between both documents
