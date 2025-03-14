@@ -36,7 +36,7 @@ uploaded_files = st.file_uploader("Upload 2 Financial PDFs",
                                 type="pdf", 
                                 accept_multiple_files=True)
 
-if len(uploaded_files) == 2:
+if uploaded_files:
     all_docs = []
     with st.spinner("Processing Multiple Financial Documents..."):
         for uploaded_file in uploaded_files:
