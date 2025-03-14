@@ -18,6 +18,7 @@ from langchain.llms.huggingface_pipeline import HuggingFacePipeline
 
 # Load the model and tokenizer
 model_name = "meta-llama/Meta-Llama-3-1B"
+HUGGINGFACE_API_TOKEN = "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"
 
 # Initialize classifier once for input guardrail
 classifier = pipeline("zero-shot-classification", 
