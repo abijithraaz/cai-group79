@@ -15,10 +15,15 @@ from langchain_core.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from langchain.llms.huggingface_pipeline import HuggingFacePipeline
+from huggingface_hub import login
+
+# Log in with your token (optional if already logged in via CLI)
+HUGGINGFACE_API_TOKEN = "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"
+login(token=HUGGINGFACE_API_TOKEN)
 
 # Load the model and tokenizer
 model_name = "meta-llama/Llama-3.2-1B-Instruct"
-HUGGINGFACE_API_TOKEN = "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"
+
 
 # Initialize classifier once for input guardrail
 classifier = pipeline("zero-shot-classification", 
