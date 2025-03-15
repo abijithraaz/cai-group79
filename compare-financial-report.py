@@ -88,8 +88,8 @@ if uploaded_files:
         # llm = Ollama(model=model_choice)
       
         ##
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForCausalLM.from_pretrained(model_name)
+        tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
         
         # Create a local pipeline
         pipeline_llm = pipeline("text-generation", model=model, tokenizer=tokenizer)
