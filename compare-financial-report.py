@@ -23,6 +23,7 @@ login(token=HUGGINGFACE_API_TOKEN)
 
 # Load the model and tokenizer
 model_name = "meta-llama/Llama-3.2-1B-Instruct"
+model_name = "apple/OpenELM-1_1B-Instruct"
 
 
 # Initialize classifier once for input guardrail
