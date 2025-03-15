@@ -23,7 +23,7 @@ login(token=HUGGINGFACE_API_TOKEN)
 
 # Load the model and tokenizer
 model_name = "meta-llama/Llama-3.2-1B-Instruct"
-model_name = "nicoboss/Llama-3.2-1B-Instruct-Uncensored"
+model_name = "HuggingFaceTB/SmolLM2-360M-Instruct"
 
 
 # Initialize classifier once for input guardrail
