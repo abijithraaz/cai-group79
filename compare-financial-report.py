@@ -17,7 +17,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from langchain.llms.huggingface_pipeline import HuggingFacePipeline
 
 # Load the model and tokenizer
-model_name = "meta-llama/Meta-Llama-3-1B"
+model_name = "meta-llama/Llama-3.2-1B-Instruct"
 HUGGINGFACE_API_TOKEN = "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"
 
 # Initialize classifier once for input guardrail
