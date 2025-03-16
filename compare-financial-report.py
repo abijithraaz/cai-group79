@@ -85,16 +85,16 @@ if uploaded_files:
         cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
 
         # Financial Analysis LLM Configuration
-        # llm = Ollama(model=model_choice)
+        llm = Ollama(model=model_choice)
       
         ##
-        tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-        model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
+        # tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        # model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
         
-        # Create a local pipeline
-        pipeline_llm = pipeline("text-generation", model=model, tokenizer=tokenizer)
-        # Wrap the local pipeline with Langchain
-        llm = HuggingFacePipeline(pipeline=pipeline_llm)
+        # # Create a local pipeline
+        # pipeline_llm = pipeline("text-generation", model=model, tokenizer=tokenizer)
+        # # Wrap the local pipeline with Langchain
+        # llm = HuggingFacePipeline(pipeline=pipeline_llm)
         ##
       
         PROMPT_TEMPLATE = """
